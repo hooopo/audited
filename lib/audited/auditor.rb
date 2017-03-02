@@ -3,7 +3,7 @@ module Audited
   # audit table.  This assumes there is an audits table ready.
   #
   #   class User < ActiveRecord::Base
-  #     audited
+  #     acts_at_audited
   #   end
   #
   # To store an audit comment set model.audit_comment to your comment before
@@ -34,7 +34,7 @@ module Audited
       # * +require_comment+ - Ensures that audit_comment is supplied before
       #   any create, update or destroy operation.
       #
-      def audited(options = {})
+      def acts_as_audited(options = {})
         # don't allow multiple calls
         return if included_modules.include?(Audited::Auditor::AuditedInstanceMethods)
 
